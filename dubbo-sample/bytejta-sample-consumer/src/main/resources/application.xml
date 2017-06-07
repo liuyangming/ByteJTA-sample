@@ -16,14 +16,6 @@
 	<import resource="dubbo-consumer.xml" />
 
 	<context:component-scan base-package="com.bytesvc.service" />
-	<bean id="druidInterceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor" />
-	<bean id="druidPointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
-		<property name="patterns">
-			<list>
-				<value>com.bytesvc.service.*</value>
-			</list>
-		</property>
-	</bean>
 
 	<bean id="mysql1" class="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/inst01" />
