@@ -17,13 +17,18 @@
 
 	<context:component-scan base-package="com.bytesvc.svc4jpa" />
 
+	<bean id="mysql" class="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/inst01" />
+		<property name="user" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+	<bean id="dataSourceWrap" class="org.bytesoft.bytejta.supports.jdbc.XADataSourceImpl">
+		<property name="xaDataSource" ref="mysql" />
+	</bean>
 	<bean id="dataSource" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource">
 		<property name="transactionManager" ref="bytejtaTransactionManager" />
+		<property name="xaDataSourceInstance" ref="dataSourceWrap" />
 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/inst01" />
-		<property name="username" value="root" />
-		<property name="password" value="123456" />
 		<property name="maxTotal" value="50" />
 		<property name="initialSize" value="20" />
 		<property name="maxWaitMillis" value="60000" />
