@@ -27,7 +27,7 @@
 	<bean id="dataSourceWrap" class="org.bytesoft.bytejta.supports.jdbc.XADataSourceImpl">
 		<property name="xaDataSource" ref="mysql" />
 	</bean>
-	<bean id="dataSource" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource">
+	<bean id="dataSource" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource" destroy-method="close">
 		<property name="transactionManager" ref="bytejtaTransactionManager" />
 		<property name="xaDataSourceInstance" ref="dataSourceWrap" />
 

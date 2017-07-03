@@ -25,7 +25,7 @@
 	<bean id="dataSourceWrap1" class="org.bytesoft.bytejta.supports.jdbc.XADataSourceImpl">
 		<property name="xaDataSource" ref="mysql1" />
 	</bean>
-	<bean id="dataSource1" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource">
+	<bean id="dataSource1" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource" destroy-method="close">
 		<property name="transactionManager" ref="bytejtaTransactionManager" />
 		<property name="xaDataSourceInstance" ref="dataSourceWrap1" />
 
@@ -58,12 +58,12 @@
 	<bean id="dataSourceWrap2" class="org.bytesoft.bytejta.supports.jdbc.XADataSourceImpl">
 		<property name="xaDataSource" ref="mysql2" />
 	</bean>
-	<bean id="dataSource2" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource">
+	<bean id="dataSource2" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource" destroy-method="close">
 		<property name="transactionManager" ref="bytejtaTransactionManager" />
 		<property name="xaDataSourceInstance" ref="dataSourceWrap2" />
 
-		<property name="maxTotal" value="50" />
-		<property name="initialSize" value="20" />
+		<property name="maxTotal" value="1" />
+		<property name="initialSize" value="1" />
 		<property name="maxWaitMillis" value="60000" />
 		<property name="minIdle" value="6" />
 		<property name="logAbandoned" value="true" />
