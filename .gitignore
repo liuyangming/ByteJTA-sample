@@ -28,3 +28,9 @@ target
 /dubbo-sample/bytejta-sample-consumer/.project
 /dubbo-sample/bytejta-sample-provider/.classpath
 /dubbo-sample/bytejta-sample-provider/.project
+/springcloud-sample/sample-consumer/.classpath
+/springcloud-sample/sample-consumer/.project
+/springcloud-sample/sample-eureka-server/.classpath
+/springcloud-sample/sample-eureka-server/.project
+/springcloud-sample/sample-provider/.classpath
+/springcloud-sample/sample-provider/.project
