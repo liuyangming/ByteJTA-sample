@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bytesvc.consumer.dao.TransferDao;
-import com.bytesvc.consumer.service.ITransferService;
 import com.bytesvc.feign.service.IAccountService;
 
 @RestController
-public class TransferController implements ITransferService {
+public class TransferController {
 	@Autowired
 	private TransferDao transferDao;
 
