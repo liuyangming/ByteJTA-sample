@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bytesvc.provider.service.IAccountService;
-
 @RestController
-public class AccountController implements IAccountService {
+public class AccountController {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
