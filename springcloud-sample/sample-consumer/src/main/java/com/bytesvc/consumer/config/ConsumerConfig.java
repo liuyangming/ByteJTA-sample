@@ -8,7 +8,6 @@ import org.apache.commons.dbcp2.managed.BasicManagedDataSource;
 import org.bytesoft.bytejta.supports.jdbc.XADataSourceImpl;
 import org.bytesoft.bytejta.supports.springcloud.SpringCloudConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -20,8 +19,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 public class ConsumerConfig {
 
 	@Bean(name = "mybatisDataSource")
-	public DataSource getDataSource(@Autowired XADataSource xaDataSource,
-			@Qualifier("bytejtaTransactionManager") @Autowired TransactionManager transactionManager) {
+	public DataSource getDataSource(@Autowired XADataSource xaDataSource, @Autowired TransactionManager transactionManager) {
 		BasicManagedDataSource bds = new BasicManagedDataSource();
 		bds.setXaDataSourceInstance(xaDataSource);
 		bds.setTransactionManager(transactionManager);

@@ -21,8 +21,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 public class ProviderConfig {
 
 	@Bean(name = "dataSource")
-	public DataSource getDataSource(@Autowired XADataSource xaDataSource,
-			@Qualifier("bytejtaTransactionManager") @Autowired TransactionManager transactionManager) {
+	public DataSource getDataSource(@Autowired XADataSource xaDataSource, @Autowired TransactionManager transactionManager) {
 		BasicManagedDataSource bds = new BasicManagedDataSource();
 		bds.setXaDataSourceInstance(xaDataSource);
 		bds.setTransactionManager(transactionManager);
