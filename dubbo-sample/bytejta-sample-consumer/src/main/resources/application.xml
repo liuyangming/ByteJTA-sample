@@ -26,7 +26,7 @@
 		<property name="xaDataSource" ref="mysql1" />
 	</bean>
 	<bean id="dataSource1" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource" destroy-method="close">
-		<property name="transactionManager" ref="bytejtaTransactionManager" />
+		<property name="transactionManager" ref="transactionManager" />
 		<property name="xaDataSourceInstance" ref="dataSourceWrap1" />
 
 		<property name="maxTotal" value="50" />
@@ -59,7 +59,7 @@
 		<property name="xaDataSource" ref="mysql2" />
 	</bean>
 	<bean id="dataSource2" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource" destroy-method="close">
-		<property name="transactionManager" ref="bytejtaTransactionManager" />
+		<property name="transactionManager" ref="transactionManager" />
 		<property name="xaDataSourceInstance" ref="dataSourceWrap2" />
 
 		<property name="maxTotal" value="1" />

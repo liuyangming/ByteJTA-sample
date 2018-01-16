@@ -11,10 +11,8 @@ import com.bytesvc.service.ITransferService;
 @Service("genericTransferService")
 public class GenericTransferServiceImpl implements ITransferService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "remoteAccountService")
 	private IAccountService remoteAccountService;
 

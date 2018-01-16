@@ -11,10 +11,8 @@ import com.bytesvc.service.ITransferService;
 @Service("multiDsTransferService")
 public class MultiDsTransferServiceImpl implements ITransferService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "accountService")
 	private IAccountService nativeAccountService;
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
 
