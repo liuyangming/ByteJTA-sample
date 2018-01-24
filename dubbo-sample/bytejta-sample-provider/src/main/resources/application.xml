@@ -28,7 +28,7 @@
 		<property name="xaDataSource" ref="mysql" />
 	</bean>
 	<bean id="dataSource" class="org.apache.commons.dbcp2.managed.BasicManagedDataSource" destroy-method="close">
-		<property name="transactionManager" ref="bytejtaTransactionManager" />
+		<property name="transactionManager" ref="transactionManager" />
 		<property name="xaDataSourceInstance" ref="dataSourceWrap" />
 
 		<property name="maxTotal" value="50" />
