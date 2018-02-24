@@ -13,7 +13,8 @@ public class GenericTransferServiceImpl implements ITransferService {
 
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
-	@javax.annotation.Resource(name = "remoteAccountService")
+	@org.springframework.beans.factory.annotation.Qualifier("remoteAccountService")
+	@org.springframework.beans.factory.annotation.Autowired(required = false)
 	private IAccountService remoteAccountService;
 
 	@Transactional(rollbackFor = ServiceException.class)
