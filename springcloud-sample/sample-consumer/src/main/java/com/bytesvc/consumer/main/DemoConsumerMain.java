@@ -15,6 +15,7 @@ public class DemoConsumerMain {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(DemoConsumerMain.class).web(WebApplicationType.SERVLET).run(args);
+		System.out.println("springcloud-demo-consumer started!");
 	}
 
 }

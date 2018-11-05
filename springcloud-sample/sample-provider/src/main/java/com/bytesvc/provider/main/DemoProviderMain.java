@@ -11,6 +11,7 @@ public class DemoProviderMain {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(DemoProviderMain.class).web(WebApplicationType.SERVLET).run(args);
+		System.out.println("springcloud-demo-provider started!");
 	}
 
 }
