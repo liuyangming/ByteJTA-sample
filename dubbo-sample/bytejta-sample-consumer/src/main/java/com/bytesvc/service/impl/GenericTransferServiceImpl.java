@@ -1,9 +1,11 @@
 package com.bytesvc.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 import com.bytesvc.service.ITransferService;
@@ -11,19 +13,15 @@ import com.bytesvc.service.ITransferService;
 @Service("genericTransferService")
 public class GenericTransferServiceImpl implements ITransferService {
 
-	@javax.annotation.Resource(name = "jdbcTemplate2")
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	@org.springframework.beans.factory.annotation.Qualifier("remoteAccountService")
-	@org.springframework.beans.factory.annotation.Autowired(required = false)
+	@Reference(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0)
 	private IAccountService remoteAccountService;
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) throws ServiceException {
-
 		this.remoteAccountService.decreaseAmount(sourceAcctId, amount);
 		this.increaseAmount(targetAcctId, amount);
-
-		// throw new ServiceException("rollback");
 	}
 
 	private void increaseAmount(String acctId, double amount) throws ServiceException {

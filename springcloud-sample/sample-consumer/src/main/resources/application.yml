@@ -8,3 +8,10 @@ eureka:
     serviceUrl:
       defaultZone: http://inst1:6000/eureka/
 
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://127.0.0.1:3306/inst02
+      username: root
+      password: 123456
+      type: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource

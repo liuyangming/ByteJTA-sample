@@ -1,16 +1,17 @@
 package com.bytesvc.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
-@Service("accountService")
+@Service(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0)
 public class AccountServiceImpl implements IAccountService {
 
-	@javax.annotation.Resource(name = "jdbcTemplate")
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)
@@ -29,7 +30,6 @@ public class AccountServiceImpl implements IAccountService {
 			throw new ServiceException("ERROR!");
 		}
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
-		// throw new ServiceException("rollback");
 	}
 
 }

@@ -1,13 +1,3 @@
-server:
-  port: 6070
-
-eureka:
-  instance:
-    hostname: inst1
-  client:
-    serviceUrl:
-      defaultZone: http://inst1:6000/eureka/
-
 spring:
   datasource:
     primary:

@@ -4,49 +4,24 @@
 
 	<groupId>org.bytesoft.sample</groupId>
 	<artifactId>bytejta-sample-consumer</artifactId>
-	<version>0.0.1</version>
+	<version>0.5.0</version>
 	<name>bytejta-sample-consumer</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.3.7.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.bytesoft.sample</groupId>
 			<artifactId>bytejta-sample-api</artifactId>
-			<version>0.0.1</version>
+			<version>0.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytejta-supports-dubbo</artifactId>
-			<version>0.4.8</version>
+			<version>0.5.0-ALPHA4</version>
 		</dependency>
-		<dependency>
-			<groupId>com.101tec</groupId>
-			<artifactId>zkclient</artifactId>
-			<version>0.5</version>
-		</dependency>
-
-		<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<!-- <dependency> -->
-		<!-- <groupId>commons-dbcp</groupId> -->
-		<!-- <artifactId>commons-dbcp</artifactId> -->
-		<!-- <version>1.4</version> -->
-		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
@@ -55,20 +30,24 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.37</version>
+			<version>5.1.40</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.0.16</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<version>2.0.4.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
-			<version>2.6.2</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+			<version>2.0.4.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.0.4.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -1,13 +1,12 @@
 package com.bytesvc.consumer.main;
 
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@ImportResource({ "classpath:bytejta-supports-springcloud.xml", "classpath:spring-mybatis.xml" })
 @EnableDiscoveryClient
 @EnableEurekaClient
 @EnableFeignClients("com.bytesvc.feign")
@@ -15,7 +14,7 @@ import org.springframework.context.annotation.ImportResource;
 public class DemoConsumerMain {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(DemoConsumerMain.class).web(true).run(args);
+		new SpringApplicationBuilder(DemoConsumerMain.class).web(WebApplicationType.SERVLET).run(args);
 	}
 
 }

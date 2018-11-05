@@ -1,5 +1,7 @@
 package com.bytesvc.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,19 +12,16 @@ import com.bytesvc.service.ITransferService;
 
 @Service("multiDsTransferService")
 public class MultiDsTransferServiceImpl implements ITransferService {
-
-	@javax.annotation.Resource(name = "accountService")
+	@Autowired
+	@Qualifier("accountService")
 	private IAccountService nativeAccountService;
-	@javax.annotation.Resource(name = "jdbcTemplate2")
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) throws ServiceException {
-
 		this.nativeAccountService.decreaseAmount(sourceAcctId, amount);
 		this.increaseAmount(targetAcctId, amount);
-
-		// throw new ServiceException("rollback");
 	}
 
 	private void increaseAmount(String acctId, double amount) throws ServiceException {

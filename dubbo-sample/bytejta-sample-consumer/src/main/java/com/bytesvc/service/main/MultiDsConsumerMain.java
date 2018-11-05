@@ -1,50 +1,32 @@
 package com.bytesvc.service.main;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.BeansException;
+import org.springframework.boot.Banner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import com.bytesvc.service.ITransferService;
 
 /**
  * 多数据源场景
  */
-public class MultiDsConsumerMain {
-
-	static ClassPathXmlApplicationContext context = null;
+@SpringBootApplication(scanBasePackages = { "com.bytesvc.service", "com.bytesvc.config" })
+public class MultiDsConsumerMain implements ApplicationContextAware {
+	private static ApplicationContext context;
 
 	public static void main(String... args) throws Throwable {
-		startup();
+		SpringApplication application = new SpringApplication(GenericConsumerMain.class);
+		application.setBannerMode(Banner.Mode.OFF);
+		application.run(args);
 
 		ITransferService transferSvc = (ITransferService) context.getBean("multiDsTransferService");
-		try {
-			transferSvc.transfer("1001", "2001", 1.00d);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			shutdown();
-		}
-
+		transferSvc.transfer("1001", "2001", 1.00d);
 	}
 
-	public static void startup() {
-		context = new ClassPathXmlApplicationContext("standalone.xml");
-		context.start();
-		waitForMillis(1000);
-	}
-
-	public static void waitForMillis(long millis) {
-		try {
-			Thread.sleep(millis);
-		} catch (InterruptedException ex) {
-			ex.printStackTrace();
-		}
-	}
-
-	public static void shutdown() {
-		waitForMillis(1000 * 5);
-		if (context != null) {
-			context.close();
-		}
-		System.exit(0);
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		MultiDsConsumerMain.context = applicationContext;
 	}
 
 }

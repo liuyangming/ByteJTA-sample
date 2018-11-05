@@ -1,5 +1,7 @@
 package com.bytesvc.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +12,8 @@ import com.bytesvc.service.IAccountService;
 @Service("accountService")
 public class AccountServiceImpl implements IAccountService {
 
-	@javax.annotation.Resource(name = "jdbcTemplate1")
+	@Autowired
+	@Qualifier("secondaryJdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)

@@ -4,7 +4,7 @@
 
 	<groupId>org.bytesoft.sample</groupId>
 	<artifactId>bytejta-sample-api</artifactId>
-	<version>0.0.1</version>
+	<version>0.5.0</version>
 	<name>bytejta-sample-api</name>
 
 	<dependencies>
