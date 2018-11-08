@@ -3,10 +3,12 @@ spring:
     primary:
       url: jdbc:mysql://127.0.0.1:3306/inst02
       username: root
+      user: root
       password: 123456
       type: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
     secondary:
       url: jdbc:mysql://127.0.0.1:3306/inst01
       username: root
+      user: root
       password: 123456
       type: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
