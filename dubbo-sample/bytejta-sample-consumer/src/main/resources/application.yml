@@ -5,8 +5,36 @@ spring:
       username: root
       password: 123456
       type: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+      maxTotal: 50
+      initialSize: 10
+      maxWait: 60000
+      minIdle: 6
+      validationQuery: select 'x' 
+      validationQueryTimeout: 1
+      timeBetweenEvictionRunsMillis: 30000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      numTestsPerEvictionRun: 20
+      logAbandoned: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
     secondary:
       url: jdbc:mysql://127.0.0.1:3306/inst01
       username: root
       password: 123456
       type: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+      maxTotal: 50
+      initialSize: 10
+      maxWait: 60000
+      minIdle: 6
+      validationQuery: select 'x' 
+      validationQueryTimeout: 1
+      timeBetweenEvictionRunsMillis: 30000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      numTestsPerEvictionRun: 20
+      logAbandoned: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
