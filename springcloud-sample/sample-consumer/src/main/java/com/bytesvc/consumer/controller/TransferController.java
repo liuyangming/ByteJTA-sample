@@ -28,10 +28,7 @@ public class TransferController {
 	}
 
 	private void increaseAmount(String acctId, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount + ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_two set amount = amount + ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 
