@@ -21,7 +21,7 @@ public class GenericConsumerMain implements ApplicationContextAware {
 		SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder().bannerMode(Banner.Mode.OFF);
 		springApplicationBuilder.sources(GenericConsumerMain.class).web(WebApplicationType.NONE).run(args);
 
-		ITransferService transferSvc = (ITransferService) context.getBean("genericTransferService");
+		ITransferService transferSvc = (ITransferService) context.getBean(ITransferService.class);
 		transferSvc.transfer("1001", "2001", 1.00d);
 	}
 
