@@ -11,13 +11,13 @@ import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 import com.bytesvc.service.ITransferService;
 
-@Service(interfaceClass = ITransferService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0)
+@Service(interfaceClass = ITransferService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = -1)
 @Primary
 public class GenericTransferServiceImpl implements ITransferService {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	@Reference(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0, timeout = 15000)
+	@Reference(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = -1, timeout = 15000)
 	private IAccountService remoteAccountService;
 
 	@Transactional(rollbackFor = ServiceException.class)

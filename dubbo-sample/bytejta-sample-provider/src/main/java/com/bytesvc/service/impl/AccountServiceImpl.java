@@ -8,7 +8,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
-@Service(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0)
+@Service(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = -1)
 public class AccountServiceImpl implements IAccountService {
 
 	@Autowired
