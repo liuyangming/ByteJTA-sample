@@ -1,6 +1,7 @@
 package com.bytesvc.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.bytesvc.service.IAccountService;
 import com.bytesvc.service.ITransferService;
 
 @Service(interfaceClass = ITransferService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0)
+@Primary
 public class GenericTransferServiceImpl implements ITransferService {
 
 	@Autowired
