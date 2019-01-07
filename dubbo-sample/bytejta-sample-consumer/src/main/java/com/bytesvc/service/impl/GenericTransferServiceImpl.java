@@ -17,7 +17,7 @@ public class GenericTransferServiceImpl implements ITransferService {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	@Reference(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = -1, timeout = 15000)
+	@Reference(interfaceClass = IAccountService.class, group = "x-bytejta", loadbalance = "bytejta", filter = "bytejta", cluster = "failfast", retries = 0, timeout = 15000)
 	private IAccountService remoteAccountService;
 
 	@Transactional(rollbackFor = ServiceException.class)

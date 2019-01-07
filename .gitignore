@@ -34,3 +34,7 @@ target
 /springcloud-sample/sample-eureka-server/.project
 /springcloud-sample/sample-provider/.classpath
 /springcloud-sample/sample-provider/.project
+/springcloud-sample-hibernate/springcloud-demo-hibernate-consumer/.classpath
+/springcloud-sample-hibernate/springcloud-demo-hibernate-consumer/.project
+/springcloud-sample-hibernate/springcloud-demo-hibernate-provider/.classpath
+/springcloud-sample-hibernate/springcloud-demo-hibernate-provider/.project
