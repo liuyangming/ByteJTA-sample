@@ -55,8 +55,10 @@ public class ConsumerConfig implements ApplicationContextAware {
 			@Autowired @Qualifier("primaryDataSource") DataSource dataSource) {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		properties.setProperty("hibernate.transaction.coordinator_class", "jta");
-		properties.setProperty("hibernate.transaction.jta.platform", "com.bytesvc.consumer.config.SpringJtaPlatform");
+		properties.setProperty("hibernate.transaction.jta.platform" //
+				, "org.bytesoft.bytejta.supports.jpa.hibernate.HibernateJtaPlatform");
 
 		LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
 		entityManager.setJpaProperties(properties);
